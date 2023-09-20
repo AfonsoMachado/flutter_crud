@@ -24,11 +24,13 @@ class UserTile extends StatelessWidget {
               onPressed: () {},
               icon: const Icon(Icons.edit),
               color: Colors.orange,
+              tooltip: 'Editar',
             ),
             IconButton(
               onPressed: () {},
               icon: const Icon(Icons.delete),
               color: Colors.red,
+              tooltip: 'Deletar',
             ),
           ],
         ),
