@@ -16,7 +16,7 @@ class UserList extends StatelessWidget {
         title: const Text('Lista de Usuários'),
       ),
       body: ListView.builder(
-        itemBuilder: (ctx, i) => UserTile(users.all.elementAt(i)),
+        itemBuilder: (ctx, i) => UserTile(users.byIndex(i)),
         itemCount: users.count,
       ),
       floatingActionButton: FloatingActionButton(
