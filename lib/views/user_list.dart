@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_crud/components/user_tile.dart';
 import 'package:flutter_crud/data/dummy_users_dart.dart';
 
 class UserList extends StatelessWidget {
@@ -6,7 +7,7 @@ class UserList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const users = {...DUMMY_USERS};
+    final users = {...DUMMY_USERS};
 
     return Scaffold(
       appBar: AppBar(
@@ -14,8 +15,13 @@ class UserList extends StatelessWidget {
         title: const Text('Lista de Usuários'),
       ),
       body: ListView.builder(
-        itemBuilder: (ctx, i) => Text(users.values.elementAt(i).name),
+        itemBuilder: (ctx, i) => UserTile(users.values.elementAt(i)),
         itemCount: users.length,
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        tooltip: 'Adicionar usuário',
+        child: const Icon(Icons.add),
       ),
     );
   }
