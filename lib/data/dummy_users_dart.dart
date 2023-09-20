@@ -5,6 +5,7 @@ const DUMMY_USERS = {
     id: 1,
     name: 'Maria',
     email: 'maria@alunos.com.br',
+    avatarUrl: '',
   ),
   '2': User(
     id: 2,
