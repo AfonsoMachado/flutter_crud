@@ -8,7 +8,7 @@ class UserForm extends StatelessWidget {
   final _form = GlobalKey<FormState>();
   final Map<String, String> _formData = {};
 
-  void _loadFormData(User user) {
+  void _loadFormData(User? user) {
     if (user != null) {
       _formData['id'] = user.id.toString();
       _formData['name'] = user.name;
@@ -22,7 +22,7 @@ class UserForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // pegando os argumento passados para a rota
-    final User user = ModalRoute.of(context)?.settings.arguments as User;
+    final User? user = ModalRoute.of(context)?.settings.arguments as User?;
     _loadFormData(user);
 
     return Scaffold(
