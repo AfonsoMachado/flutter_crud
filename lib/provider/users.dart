@@ -21,7 +21,7 @@ class UsersProvider {
     return userId;
   }
 
-  Future<void> deleteUser(String userId) async {
+  static Future<void> deleteUser(String userId) async {
     final db = await SQLHelper.db();
     await db.rawDelete("DELETE FROM 'users' WHERE id = '$userId'");
   }

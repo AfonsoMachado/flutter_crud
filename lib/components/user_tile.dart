@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_crud/models/user.dart';
+import 'package:flutter_crud/provider/users.dart';
 import 'package:flutter_crud/routes/app_routes.dart';
 
 class UserTile extends StatelessWidget {
   final User user;
+  final Function refreshCallback;
 
-  const UserTile(this.user, {super.key});
+  const UserTile(this.user, this.refreshCallback, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -55,12 +57,13 @@ class UserTile extends StatelessWidget {
                               child: const Text('Sim'),
                             ),
                           ],
-                        )).then((confirmed) => {
-                      if (confirmed)
-                        {
-                          // Remoção do usuário
-                        }
-                    });
+                        )).then((confirmed) async {
+                  if (confirmed) {
+                    await UsersProvider.deleteUser(user.id.toString());
+                    refreshCallback();
+                    // Remoção do usuário
+                  }
+                });
               },
               icon: const Icon(Icons.delete),
               color: Colors.red,
