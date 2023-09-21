@@ -36,10 +36,12 @@ class _UserListState extends State<UserList> {
         centerTitle: true,
         title: const Text('Lista de Usuários'),
       ),
-      body: ListView.builder(
-        itemBuilder: (ctx, i) => UserTile(_users.elementAt(i)),
-        itemCount: _users.length,
-      ),
+      body: _isLoading
+          ? const Center(child: CircularProgressIndicator())
+          : ListView.builder(
+              itemBuilder: (ctx, i) => UserTile(_users.elementAt(i)),
+              itemCount: _users.length,
+            ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.of(context)
