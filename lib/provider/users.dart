@@ -30,6 +30,6 @@ class UsersProvider {
 
   static Future<void> deleteUser(String userId) async {
     final db = await SQLHelper.db();
-    await db.rawDelete("DELETE FROM 'users' WHERE id = '$userId'");
+    await db.delete('users', where: "id = ?", whereArgs: [userId]);
   }
 }
