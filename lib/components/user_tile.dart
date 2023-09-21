@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_crud/models/user.dart';
-import 'package:flutter_crud/provider/users.dart';
 import 'package:flutter_crud/routes/app_routes.dart';
-import 'package:provider/provider.dart';
 
 class UserTile extends StatelessWidget {
   final User user;
@@ -61,8 +59,6 @@ class UserTile extends StatelessWidget {
                       if (confirmed)
                         {
                           // Remoção do usuário
-                          Provider.of<UsersProvider>(context, listen: false)
-                              .remove(user)
                         }
                     });
               },

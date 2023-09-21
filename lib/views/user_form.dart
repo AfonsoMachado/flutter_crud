@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_crud/models/user.dart';
 import 'package:flutter_crud/provider/users.dart';
-import 'package:provider/provider.dart';
 
 class UserForm extends StatefulWidget {
   const UserForm({super.key});
@@ -29,7 +28,7 @@ class _UserFormState extends State<UserForm> {
   void didChangeDependencies() {
     super.didChangeDependencies();
 
-    // pegando os argumento passados para a rota
+    // pegando os argumentos passados para a rota
     final User? user = ModalRoute.of(context)?.settings.arguments as User?;
     _loadFormData(user);
   }
@@ -85,13 +84,13 @@ class _UserFormState extends State<UserForm> {
           if (isValid) {
             // Salva o conteúdo de cada input do formulário
             _form.currentState?.save();
-            Provider.of<UsersProvider>(context, listen: false).put(User(
-              id: _formData['id'] != null ? int.parse(_formData['id']!) : null,
+            UsersProvider.insertUser(User(
               name: _formData['name']!,
               email: _formData['email']!,
               avatarUrl: _formData['avatarUrl'],
             ));
-            Navigator.of(context).pop();
+
+            Navigator.of(context).pop(true);
           }
 
           // Navigator.of(context).pop();
