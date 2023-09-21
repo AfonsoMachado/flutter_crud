@@ -39,8 +39,12 @@ class _UserListState extends State<UserList> {
       body: _isLoading
           ? const Center(child: CircularProgressIndicator())
           : ListView.builder(
-              itemBuilder: (ctx, i) =>
-                  UserTile(_users.elementAt(i), _refreshUsers),
+              padding: const EdgeInsets.all(5),
+              itemBuilder: (ctx, i) => Card(
+                color: Colors.blue[200],
+                margin: const EdgeInsets.all(5),
+                child: UserTile(_users.elementAt(i), _refreshUsers),
+              ),
               itemCount: _users.length,
             ),
       floatingActionButton: FloatingActionButton(
