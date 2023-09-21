@@ -1,6 +1,6 @@
 # CRUD Flutter
 
-Desenvolvimenyo de um CRUD em Flutter para a fixação de diversos conhecimentos de Dart e Flutter. Os dados usados nesse projeto são dados mockados diretamente no código fonte, então após a reinicialização do aplicativo, os dados são todos resetados. Futuramente será realizada uma integração com banco de dados para ter dados dinâmicos.
+Desenvolvimenyo de um CRUD em Flutter para a fixação de diversos conhecimentos de Dart e Flutter. Os dados desse crud são armazenados em um banco de dados local SQLite, implementado usando o pacote [sqflite](https://pub.dev/packages/sqflite).
 
 ## :fire: Instalando e executando localmente
 
