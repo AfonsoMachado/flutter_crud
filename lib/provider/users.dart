@@ -21,6 +21,13 @@ class UsersProvider {
     return userId;
   }
 
+  static Future<void> updateUser(User user) async {
+    final db = await SQLHelper.db();
+    await db
+        .update('users', user.toMap(), where: "id = ?", whereArgs: [user.id]);
+    return;
+  }
+
   static Future<void> deleteUser(String userId) async {
     final db = await SQLHelper.db();
     await db.rawDelete("DELETE FROM 'users' WHERE id = '$userId'");

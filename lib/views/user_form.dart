@@ -84,16 +84,22 @@ class _UserFormState extends State<UserForm> {
           if (isValid) {
             // Salva o conteúdo de cada input do formulário
             _form.currentState?.save();
-            UsersProvider.insertUser(User(
+
+            User user = User(
+              id: _formData['id'] != null ? int.parse(_formData['id']!) : null,
               name: _formData['name']!,
               email: _formData['email']!,
               avatarUrl: _formData['avatarUrl'],
-            ));
+            );
+
+            if (user.id == null) {
+              UsersProvider.insertUser(user);
+            } else {
+              UsersProvider.updateUser(user);
+            }
 
             Navigator.of(context).pop(true);
           }
-
-          // Navigator.of(context).pop();
         },
         tooltip: 'Salvar usuário',
         child: const Icon(Icons.save),

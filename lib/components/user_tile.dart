@@ -25,11 +25,13 @@ class UserTile extends StatelessWidget {
           children: [
             IconButton(
               onPressed: () {
-                Navigator.of(context).pushNamed(
-                  AppRoutes.USER_FORM,
-                  // Mandando o usuário como argumento para a rota
-                  arguments: user,
-                );
+                Navigator.of(context)
+                    .pushNamed(
+                      AppRoutes.USER_FORM,
+                      // Mandando o usuário como argumento para a rota
+                      arguments: user,
+                    )
+                    .then((_) => refreshCallback());
               },
               icon: const Icon(Icons.edit),
               color: Colors.orange,
